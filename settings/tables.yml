@@ -1,0 +1,74 @@
+auth_tokens:
+  table: auth_tokens
+  private:
+    - id
+    - user_id
+    - token
+    - expires_at
+
+menus:
+  table: menus
+  api: full
+  name_field: text
+  sort: created_at
+  reverse: true
+  private:
+    - id
+    - link
+    - text
+    - position
+    - created_at
+    - updated_at
+
+menu_items:
+  table: menu_items
+  api: full
+  name_field: text
+  sort: position
+  private:
+    - id
+    - menu_id
+    - link
+    - text
+    - position
+    - created_at
+    - updated_at
+
+replaces:
+  table: replaces
+  api: full
+  name_field: first
+  sort: first
+  private:
+    - id
+    - first
+    - second
+
+roles:
+  table: roles
+  api: full
+  name_field: name
+  sort: name
+  public:
+    - id
+    - name
+    - tag
+
+tags:
+  table: tags
+
+users:
+  table: users
+  api: full
+  name_field: login
+  sort: created_at
+  reverse: true
+  public:
+    - id
+    - login
+    - name
+    - role_id
+    - created_at
+    - updated_at
+  private:
+    - email

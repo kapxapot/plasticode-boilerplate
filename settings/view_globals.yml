@@ -1,0 +1,24 @@
+site_name: Plasticode Boilerplate
+site_bare_url: yoursite.com
+site_url: 'http://yoursite.com'
+site_description: 'Добро пожаловать в Plasticode!'
+short_site_description: 'Пластилин для строительства сайтов'
+contact_email: contact@yoursite.com
+site_keywords: plasticode, boilerplate
+
+# folders for Twig only
+folders:
+  global: #PLASTICODE_SERVER_DIR#/public/
+
+mde: true
+
+disqus_alias: your-site
+
+admin_menu:
+  - group:
+      title: Сайт
+      items:
+        - users
+        - roles
+        - menus
+        - replaces
