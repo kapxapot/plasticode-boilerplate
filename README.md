@@ -1,6 +1,6 @@
 # Plasticode Boilerplate 0.2
 
-Basic site, built on (https://github.com/kapxapot/plasticode)[Plasticode].
+Basic site, built on [Plasticode](https://github.com/kapxapot/plasticode).
 
 ## Installation
 
