@@ -9,7 +9,8 @@ actions:
           - api_create
         - edit_own:
           - api_edit
-        - publish
+        - publish:
+          - upload
       - delete_own:
         - api_delete
 
@@ -46,9 +47,6 @@ rights:
     template: admin_strict
 
   menu_items:
-    template: admin_strict
-  
-  replaces:
     template: admin_strict
 
   roles:

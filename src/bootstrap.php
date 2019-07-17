@@ -1,45 +1,48 @@
 <?php
 
+$debug = false;
+
 function debugModeOn() {
-	global $debug;
-	
-	if ($debug !== true) {
-		error_reporting(E_ALL & ~E_NOTICE);
-		ini_set("display_errors", 1);
-		
-		$debug = true;
-	}
+    global $debug;
+    
+    if ($debug !== true) {
+        error_reporting(E_ALL & ~E_NOTICE);
+        ini_set("display_errors", 1);
+        
+        $debug = true;
+    }
 }
 
 if (isset($_GET['debug'])) {
-	debugModeOn();
+    debugModeOn();
 }
 
 $root = __DIR__ . '/..';
 
 require $root . '/vendor/autoload.php';
 
-$dotenv = new \Dotenv\Dotenv($root);
-$dotenv->load();
+\Plasticode\Core\Env::load($root);
 
 session_start();
 
-$path = $root . '/settings/';
+$path = $root . '/settings';
 $appSettings = \Plasticode\Core\Settings::load($path);
 
-$app = new \Slim\App($appSettings);
+$app = \Plasticode\Core\App::get($appSettings);
 $container = $app->getContainer();
 $settings = $container->get('settings');
 
 if ($settings['debug']) {
-	debugModeOn();
+    debugModeOn();
 }
 
-require $src . 'dependencies.php';
+$bootstrap = new \App\Config\Bootstrap($settings, $debug, __DIR__);
+\Plasticode\Core\Core::bootstrap($container, $bootstrap->getMappings());
 
+// middleware
 $app->add(new \Plasticode\Middleware\SlashMiddleware($container));
 $app->add(new \Plasticode\Middleware\CookieAuthMiddleware($container, $settings['auth_token_key']));
 
-require $src . 'routes.php';
+require $root . '/src/routes.php';
 
 $app->run();

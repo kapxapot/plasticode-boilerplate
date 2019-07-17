@@ -70,25 +70,6 @@ menu_items:
       attributes: [ readonly ]
 
 
-replaces:
-
-  name_gen: замены
-  name_accus: замену
-  title: Замены
-  
-  columns:
-    id:
-      name: id
-      attributes: [ readonly ]
-    
-    first:
-      name: Строка
-
-    second:
-      name: Замена
-      template: escapeHtml(row.second)
-
-
 roles:
 
   name_gen: роли

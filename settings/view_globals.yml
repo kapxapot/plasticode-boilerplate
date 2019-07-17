@@ -1,18 +1,34 @@
 site_name: Plasticode Boilerplate
 site_bare_url: yoursite.com
 site_url: 'http://yoursite.com'
+cool_site_url: '//yoursite.com'
 site_description: 'Добро пожаловать в Plasticode!'
 short_site_description: 'Пластилин для строительства сайтов'
+#logo: '{ASSETS_PATH}images/logo.jpg'
+#fav_icon: '{ASSETS_PATH}images/logo.jpg'
+#twitter_card_image: '{ASSETS_PATH}images/logo.jpg'
+#touch_icon: '{ASSETS_PATH}images/logo.jpg'
 contact_email: contact@yoursite.com
+copyright_from: 2019
+admin_copyright_from: 2019
 site_keywords: plasticode, boilerplate
+lang: ru
+
+#no_search: true
 
 # folders for Twig only
 folders:
-  global: #PLASTICODE_SERVER_DIR#/public/
+  global: {PLASTICODE_PUBLIC_PATH}
+  local: {SITE_PUBLIC_PATH}
 
 mde: true
 
 disqus_alias: your-site
+google_analytics_id: {GOOGLE_ANALYTICS_ID}
+
+angular:
+  app: bsApp
+  ctrl: bsCtrl
 
 admin_menu:
   - group:
@@ -21,4 +37,3 @@ admin_menu:
         - users
         - roles
         - menus
-        - replaces

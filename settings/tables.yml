@@ -34,16 +34,6 @@ menu_items:
     - created_at
     - updated_at
 
-replaces:
-  table: replaces
-  api: full
-  name_field: first
-  sort: first
-  private:
-    - id
-    - first
-    - second
-
 roles:
   table: roles
   api: full

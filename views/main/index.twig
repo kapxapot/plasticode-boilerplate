@@ -1,24 +1,15 @@
 {% extends 'main/layout.twig' %}
 
 {% block content %}
-	<div class="panel panel-primary">
-		<div class="panel-heading panel-title">
-			<header>
-				<span>{{ text }}</span>
-				<small>{{ text_en }}</small>
-			</header>
-		</div>
-	  	<div class="panel-body">
-	  		<p>Сегодня {{ kittens.verb }} [{{ kittens.num }}] <b>{{ kittens.num_str }}</b> {{ kittens.label }}.</p>
-	  		<p>За ними {{ kids.verb }} [{{ kids.num }}] <b>{{ kids.num_str }}</b> {{ kids.label }}.</p>
-	    </div>
-	</div>
-
-	<div class="panel">
-	  	<div class="panel-body">
-	  		{% for f in forevers %}
-	  			<p>{{ f.name|capitalize }} {{ f.past }}, {{ f.present }} и {{ f.future }}.</p>
-	  		{% endfor %}
-	    </div>
-	</div>
+    <div class="panel panel-primary">
+        <div class="panel-heading panel-title">
+            <header>
+                <span>{{ text }}</span>
+                <small>{{ text_en }}</small>
+            </header>
+        </div>
+          <div class="panel-body">
+              <p>More info on <a href="https://github.com/kapxapot/plasticode-boilerplate">GitHub</a>.</p>
+        </div>
+    </div>
 {% endblock %}
