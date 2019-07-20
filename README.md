@@ -12,7 +12,7 @@ Basic site built on [Plasticode](https://github.com/kapxapot/plasticode).
 
 Fill in the database settings (host, db name, user, password) and other settings (e.g., `ROOT_PATH`).
 
-3. Run `composer update`.
+3. Run `composer install`.
 
 This will install and update all required PHP libraries (Plasticode first of all).
 
