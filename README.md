@@ -14,6 +14,8 @@ Basic site built on [Plasticode](https://github.com/kapxapot/plasticode).
 
 Fill in the database settings (host, db name, user, password).
 
+**Note:** DB user's password shouldn't be empty (that's a known issue).
+
 Customize the path. For example, if the site's path on the local server will be `/boilerplate`, you should set:
 
 - ROOT_PATH="**/boilerplate**"
