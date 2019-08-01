@@ -14,7 +14,7 @@ Basic site built on [Plasticode](https://github.com/kapxapot/plasticode).
 
 Fill in the database settings (host, db name, user, password).
 
-**Note:** DB user's password shouldn't be empty (that's a known issue).
+**Note:** DB user's password shouldn't be empty (that's a known [issue](https://github.com/kapxapot/plasticode/issues/2)).
 
 Customize the path. For example, if the site's path on the local server will be `/boilerplate`, you should set:
 
@@ -40,4 +40,4 @@ This will install and update all required PHP libraries (Plasticode first of all
 
 This will create the tables in the DB and create a default admin user with login "admin" and password "admin" (you can change the password in the Admin UI (`/admin`) after the installation is finished).
 
-7. Open the browser and navigate to your site (http://localhost/boilerplate).
+7. Open the browser and navigate to your site (http://localhost/boilerplate in case of Apache).
