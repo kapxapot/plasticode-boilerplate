@@ -20,14 +20,16 @@ class InitUsers extends AbstractMigration
             ->create();
 
         $table
-            ->insert([
+            ->insert(
                 [
-                    'id' => 1,
-                    'login' => 'admin',
-                    'password' => '$2y$10$ZPbyuHSy/eOgUhXr07fMCeRphu1qsJRRAB5ij9alZWSKM4r0TR1zW', // 'admin'
-                    'role_id' => 1,
-                ],
-            ])
+                    [
+                        'id' => 1,
+                        'login' => 'admin',
+                        'password' => '$2y$10$ZPbyuHSy/eOgUhXr07fMCeRphu1qsJRRAB5ij9alZWSKM4r0TR1zW', // 'admin'
+                        'role_id' => 1,
+                    ],
+                ]
+            )
             ->save();
     }
 

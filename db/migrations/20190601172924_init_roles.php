@@ -14,23 +14,25 @@ class InitRoles extends AbstractMigration
             ->create();
 
         $table
-            ->insert([
+            ->insert(
                 [
-                    'id' => 1,
-                    'name' => 'Администратор',
-                    'tag' => 'admin',
-                ],
-                [
-                    'id' => 2,
-                    'name' => 'Редактор',
-                    'tag' => 'editor',
-                ],
-                [
-                    'id' => 3,
-                    'name' => 'Автор',
-                    'tag' => 'author',
-                ],
-            ])
+                    [
+                        'id' => 1,
+                        'name' => 'Администратор',
+                        'tag' => 'admin',
+                    ],
+                    [
+                        'id' => 2,
+                        'name' => 'Редактор',
+                        'tag' => 'editor',
+                    ],
+                    [
+                        'id' => 3,
+                        'name' => 'Автор',
+                        'tag' => 'author',
+                    ],
+                ]
+            )
             ->save();
     }
 
