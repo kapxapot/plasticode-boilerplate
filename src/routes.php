@@ -11,15 +11,22 @@ use Plasticode\Middleware\TokenAuthMiddleware;
 
 use App\Controllers\IndexController;
 
-$access = function ($entity, $action, $redirect = null) use ($container) {
-    return new AccessMiddleware(
+/** @var ContainerInterface $container */
+
+/**
+ * Creates AccessMiddleware.
+ * 
+ * @var \Closure
+ */
+$access = fn (string $entity, string $action, ?string $redirect = null)
+    => new AccessMiddleware(
         $container->access,
+        $container->auth,
         $container->router,
         $entity,
         $action,
         $redirect
     );
-};
 
 $root = $settings['root'];
 $trueRoot = (strlen($root) == 0);
@@ -44,7 +51,7 @@ $app->group($root, function () use ($trueRoot, $settings, $access, $container) {
     
         $this->post('/parser/parse', ParserController::class . ':parse')
             ->setName('api.parser.parse');
-    })->add(new TokenAuthMiddleware($container->auth));
+    })->add(new TokenAuthMiddleware($container->authService));
     
     // admin
     
@@ -57,7 +64,7 @@ $app->group($root, function () use ($trueRoot, $settings, $access, $container) {
             $gen = $container->generatorResolver->resolveEntity($entity);
             $gen->generateAdminPageRoute($this, $access);
         }
-    })->add(new AuthMiddleware($container->router, $container->auth, 'admin.index'));
+    })->add(new AuthMiddleware($container->router, $container->authService, 'admin.index'));
 
     // site
     
@@ -70,10 +77,10 @@ $app->group($root, function () use ($trueRoot, $settings, $access, $container) {
     $this->group('/auth', function () {
         $this->post('/signup', AuthController::class . ':postSignUp')->setName('auth.signup');
         $this->post('/signin', AuthController::class . ':postSignIn')->setName('auth.signin');
-    })->add(new GuestMiddleware($container->router, $container->auth, 'main.index'));
+    })->add(new GuestMiddleware($container->router, $container->authService, 'main.index'));
         
     $this->group('/auth', function () {
         $this->post('/signout', AuthController::class . ':postSignOut')->setName('auth.signout');
         $this->post('/password/change', PasswordController::class . ':postChangePassword')->setName('auth.password.change');
-    })->add(new AuthMiddleware($container->router, $container->auth, 'main.index'));
+    })->add(new AuthMiddleware($container->router, $container->authService, 'main.index'));
 });

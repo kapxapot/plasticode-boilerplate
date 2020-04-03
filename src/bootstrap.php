@@ -36,7 +36,7 @@ $app->add(
 
 $app->add(
     new \Plasticode\Middleware\CookieAuthMiddleware(
-        $container->auth,
+        $container->authService,
         $settings['auth_token_key']
     )
 );
